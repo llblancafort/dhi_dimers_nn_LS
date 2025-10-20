@@ -1,14 +1,9 @@
 # dhi_dimers_nn_LS
 Data set files:
-dhi_dimer_data.dat - 11 column file with the names of the compounds and the energy and osc. strength endpoints.
-cyc.ox1.ox2.dat - file with a list of Ox1 and Ox2 cyclic dimers.
+QBF.out, QBF_DHI_only.out, QBF_DHICA_only.out - Data set files containing the descriptor and output values for all molecules.
 Python scripts:
-cyc_arom.ox1.ox2.py - generates the AR descriptor value for the Ox1 and Ox2 cyclic dimers of cyc.ox1.ox2.dat (difficult cases).
-NN_dhi_input_generator.py - generates the input files for the training with the different descriptor options.
-NN_G_rel.py - training of the NNs for the G_rel endpoint.
-NN_E_S1.py - training of the NNs for the E_S1 endpoint. Can be adapted to the remaining E_Sn and f_Sn endpoints.
+DT_G_rel.py - training of the FP-DT model for G_rel endpoint.
+RF_E_S1.py - training of the FP-RF model for E_exc1 endpoint.
+NN_log_f_S1_norm.py - training of the  FP-DNN model for log(f) of S1 endpoint.
+To train the model for other endpoints than given, change the name of the model to the column of interest in the data file.
 
-WORKFLOW:
-(1) run cyc_arom.ox1.ox2.py script to generate the AR descriptor for difficult cases.
-(2) run NN_dhi_input_generator.py script to prepare the input files.
-(3) run the NN training with the desired setup, eg python NN_G_rel.py QBF.out
